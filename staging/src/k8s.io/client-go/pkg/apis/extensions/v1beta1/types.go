@@ -881,38 +881,30 @@ type PodSecurityPolicy struct {
 // Pod Security Policy Spec defines the policy enforced.
 type PodSecurityPolicySpec struct {
 	// privileged determines if a pod can request to be run as privileged.
-	// +optional
-	Privileged bool `json:"privileged,omitempty" protobuf:"varint,1,opt,name=privileged"`
+	Privileged bool `json:"privileged" protobuf:"varint,1,opt,name=privileged"`
 	// DefaultAddCapabilities is the default set of capabilities that will be added to the container
 	// unless the pod spec specifically drops the capability.  You may not list a capabiility in both
 	// DefaultAddCapabilities and RequiredDropCapabilities.
-	// +optional
-	DefaultAddCapabilities []v1.Capability `json:"defaultAddCapabilities,omitempty" protobuf:"bytes,2,rep,name=defaultAddCapabilities,casttype=k8s.io/kubernetes/pkg/api/v1.Capability"`
+	DefaultAddCapabilities []v1.Capability `json:"defaultAddCapabilities" protobuf:"bytes,2,rep,name=defaultAddCapabilities,casttype=k8s.io/kubernetes/pkg/api/v1.Capability"`
 	// RequiredDropCapabilities are the capabilities that will be dropped from the container.  These
 	// are required to be dropped and cannot be added.
-	// +optional
-	RequiredDropCapabilities []v1.Capability `json:"requiredDropCapabilities,omitempty" protobuf:"bytes,3,rep,name=requiredDropCapabilities,casttype=k8s.io/kubernetes/pkg/api/v1.Capability"`
+	RequiredDropCapabilities []v1.Capability `json:"requiredDropCapabilities" protobuf:"bytes,3,rep,name=requiredDropCapabilities,casttype=k8s.io/kubernetes/pkg/api/v1.Capability"`
 	// AllowedCapabilities is a list of capabilities that can be requested to add to the container.
 	// Capabilities in this field may be added at the pod author's discretion.
 	// You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities.
-	// +optional
-	AllowedCapabilities []v1.Capability `json:"allowedCapabilities,omitempty" protobuf:"bytes,4,rep,name=allowedCapabilities,casttype=k8s.io/kubernetes/pkg/api/v1.Capability"`
+	AllowedCapabilities []v1.Capability `json:"allowedCapabilities" protobuf:"bytes,4,rep,name=allowedCapabilities,casttype=k8s.io/kubernetes/pkg/api/v1.Capability"`
 	// volumes is a white list of allowed volume plugins.  Empty indicates that all plugins
 	// may be used.
 	// +optional
 	Volumes []FSType `json:"volumes,omitempty" protobuf:"bytes,5,rep,name=volumes,casttype=FSType"`
 	// hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.
-	// +optional
-	HostNetwork bool `json:"hostNetwork,omitempty" protobuf:"varint,6,opt,name=hostNetwork"`
+	HostNetwork bool `json:"hostNetwork" protobuf:"varint,6,opt,name=hostNetwork"`
 	// hostPorts determines which host port ranges are allowed to be exposed.
-	// +optional
-	HostPorts []HostPortRange `json:"hostPorts,omitempty" protobuf:"bytes,7,rep,name=hostPorts"`
+	HostPorts []HostPortRange `json:"hostPorts" protobuf:"bytes,7,rep,name=hostPorts"`
 	// hostPID determines if the policy allows the use of HostPID in the pod spec.
-	// +optional
-	HostPID bool `json:"hostPID,omitempty" protobuf:"varint,8,opt,name=hostPID"`
+	HostPID bool `json:"hostPID" protobuf:"varint,8,opt,name=hostPID"`
 	// hostIPC determines if the policy allows the use of HostIPC in the pod spec.
-	// +optional
-	HostIPC bool `json:"hostIPC,omitempty" protobuf:"varint,9,opt,name=hostIPC"`
+	HostIPC bool `json:"hostIPC" protobuf:"varint,9,opt,name=hostIPC"`
 	// seLinux is the strategy that will dictate the allowable labels that may be set.
 	SELinux SELinuxStrategyOptions `json:"seLinux" protobuf:"bytes,10,opt,name=seLinux"`
 	// runAsUser is the strategy that will dictate the allowable RunAsUser values that may be set.
@@ -926,12 +918,10 @@ type PodSecurityPolicySpec struct {
 	// the PSP should deny the pod.
 	// If set to false the container may run with a read only root file system if it wishes but it
 	// will not be forced to.
-	// +optional
-	ReadOnlyRootFilesystem bool `json:"readOnlyRootFilesystem,omitempty" protobuf:"varint,14,opt,name=readOnlyRootFilesystem"`
+	ReadOnlyRootFilesystem bool `json:"readOnlyRootFilesystem" protobuf:"varint,14,opt,name=readOnlyRootFilesystem"`
 	// AllowedHostPaths is a white list of allowed host path prefixes. Empty indicates that all
 	// host paths may be used.
-	// +optional
-	AllowedHostPaths []string `json:"allowedHostPaths,omitempty" protobuf:"bytes,15,opt,name=allowedHostPaths"`
+	AllowedHostPaths []string `json:"allowedHostPaths" protobuf:"bytes,15,opt,name=allowedHostPaths"`
 }
 
 // FS Type gives strong typing to different file systems that are used by volumes.
