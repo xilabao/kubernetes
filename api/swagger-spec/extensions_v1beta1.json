@@ -9953,10 +9953,20 @@
     "id": "v1beta1.PodSecurityPolicySpec",
     "description": "Pod Security Policy Spec defines the policy enforced.",
     "required": [
+     "privileged",
+     "defaultAddCapabilities",
+     "requiredDropCapabilities",
+     "allowedCapabilities",
+     "hostNetwork",
+     "hostPorts",
+     "hostPID",
+     "hostIPC",
      "seLinux",
      "runAsUser",
      "supplementalGroups",
-     "fsGroup"
+     "fsGroup",
+     "readOnlyRootFilesystem",
+     "allowedHostPaths"
     ],
     "properties": {
      "privileged": {

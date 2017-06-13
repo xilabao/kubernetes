@@ -1230,9 +1230,21 @@ func Convert_v1beta1_PodSecurityPolicySpec_To_extensions_PodSecurityPolicySpec(i
 
 func autoConvert_extensions_PodSecurityPolicySpec_To_v1beta1_PodSecurityPolicySpec(in *extensions.PodSecurityPolicySpec, out *PodSecurityPolicySpec, s conversion.Scope) error {
 	out.Privileged = in.Privileged
-	out.DefaultAddCapabilities = *(*[]api_v1.Capability)(unsafe.Pointer(&in.DefaultAddCapabilities))
-	out.RequiredDropCapabilities = *(*[]api_v1.Capability)(unsafe.Pointer(&in.RequiredDropCapabilities))
-	out.AllowedCapabilities = *(*[]api_v1.Capability)(unsafe.Pointer(&in.AllowedCapabilities))
+	if in.DefaultAddCapabilities == nil {
+		out.DefaultAddCapabilities = make([]api_v1.Capability, 0)
+	} else {
+		out.DefaultAddCapabilities = *(*[]api_v1.Capability)(unsafe.Pointer(&in.DefaultAddCapabilities))
+	}
+	if in.RequiredDropCapabilities == nil {
+		out.RequiredDropCapabilities = make([]api_v1.Capability, 0)
+	} else {
+		out.RequiredDropCapabilities = *(*[]api_v1.Capability)(unsafe.Pointer(&in.RequiredDropCapabilities))
+	}
+	if in.AllowedCapabilities == nil {
+		out.AllowedCapabilities = make([]api_v1.Capability, 0)
+	} else {
+		out.AllowedCapabilities = *(*[]api_v1.Capability)(unsafe.Pointer(&in.AllowedCapabilities))
+	}
 	out.Volumes = *(*[]FSType)(unsafe.Pointer(&in.Volumes))
 	out.HostNetwork = in.HostNetwork
 	if in.HostPorts != nil {
@@ -1244,7 +1256,7 @@ func autoConvert_extensions_PodSecurityPolicySpec_To_v1beta1_PodSecurityPolicySp
 			}
 		}
 	} else {
-		out.HostPorts = nil
+		out.HostPorts = make([]HostPortRange, 0)
 	}
 	out.HostPID = in.HostPID
 	out.HostIPC = in.HostIPC
@@ -1261,7 +1273,11 @@ func autoConvert_extensions_PodSecurityPolicySpec_To_v1beta1_PodSecurityPolicySp
 		return err
 	}
 	out.ReadOnlyRootFilesystem = in.ReadOnlyRootFilesystem
-	out.AllowedHostPaths = *(*[]string)(unsafe.Pointer(&in.AllowedHostPaths))
+	if in.AllowedHostPaths == nil {
+		out.AllowedHostPaths = make([]string, 0)
+	} else {
+		out.AllowedHostPaths = *(*[]string)(unsafe.Pointer(&in.AllowedHostPaths))
+	}
 	return nil
 }
 

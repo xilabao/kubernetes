@@ -7595,28 +7595,28 @@ Both these may change in the future. Incoming requests are matched against the h
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">privileged</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">privileged determines if a pod can request to be run as privileged.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">defaultAddCapabilities</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DefaultAddCapabilities is the default set of capabilities that will be added to the container unless the pod spec specifically drops the capability.  You may not list a capabiility in both DefaultAddCapabilities and RequiredDropCapabilities.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_capability">v1.Capability</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">requiredDropCapabilities</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RequiredDropCapabilities are the capabilities that will be dropped from the container.  These are required to be dropped and cannot be added.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_capability">v1.Capability</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">allowedCapabilities</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AllowedCapabilities is a list of capabilities that can be requested to add to the container. Capabilities in this field may be added at the pod author&#8217;s discretion. You must not list a capability in both AllowedCapabilities and RequiredDropCapabilities.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1_capability">v1.Capability</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -7630,28 +7630,28 @@ Both these may change in the future. Incoming requests are matched against the h
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostNetwork</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostNetwork determines if the policy allows the use of HostNetwork in the pod spec.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostPorts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostPorts determines which host port ranges are allowed to be exposed.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#_v1beta1_hostportrange">v1beta1.HostPortRange</a> array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostPID</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostPID determines if the policy allows the use of HostPID in the pod spec.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostIPC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hostIPC determines if the policy allows the use of HostIPC in the pod spec.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 </tr>
@@ -7686,14 +7686,14 @@ Both these may change in the future. Incoming requests are matched against the h
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">readOnlyRootFilesystem</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ReadOnlyRootFilesystem when set to true will force containers to run with a read only root file system.  If the container specifically requests to run with a non-read only root file system the PSP should deny the pod. If set to false the container may run with a read only root file system if it wishes but it will not be forced to.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">boolean</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">allowedHostPaths</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AllowedHostPaths is a white list of allowed host path prefixes. Empty indicates that all host paths may be used.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">string array</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -8224,7 +8224,7 @@ Both these may change in the future. Incoming requests are matched against the h
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-06-10 04:37:41 UTC
+Last updated 2017-06-13 06:44:44 UTC
 </div>
 </div>
 </body>
